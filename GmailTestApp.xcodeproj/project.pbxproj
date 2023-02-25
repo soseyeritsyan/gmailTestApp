@@ -13,6 +13,9 @@
 		3B8A0BAE29A8DFEB0092B757 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8A0BAC29A8DFEB0092B757 /* Main.storyboard */; };
 		3B8A0BB029A8DFEC0092B757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B8A0BAF29A8DFEC0092B757 /* Assets.xcassets */; };
 		3B8A0BB329A8DFEC0092B757 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8A0BB129A8DFEC0092B757 /* LaunchScreen.storyboard */; };
+		ED12651129AA13E0008FE8A4 /* MailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12651029AA13E0008FE8A4 /* MailModel.swift */; };
+		ED12651329AA1BDC008FE8A4 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12651229AA1BDC008FE8A4 /* InboxViewController.swift */; };
+		ED12651529AA1D7D008FE8A4 /* MailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12651429AA1D7D008FE8A4 /* MailTableViewCell.swift */; };
 		ED91036629A949F3002F8F22 /* InputPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91036529A949F3002F8F22 /* InputPasswordViewController.swift */; };
 		EDE69E8829A9CEC100223B6A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE69E8729A9CEC100223B6A /* UserModel.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +29,9 @@
 		3B8A0BAF29A8DFEC0092B757 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B8A0BB229A8DFEC0092B757 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B8A0BB429A8DFEC0092B757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED12651029AA13E0008FE8A4 /* MailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailModel.swift; sourceTree = "<group>"; };
+		ED12651229AA1BDC008FE8A4 /* InboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		ED12651429AA1D7D008FE8A4 /* MailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailTableViewCell.swift; sourceTree = "<group>"; };
 		ED91036529A949F3002F8F22 /* InputPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPasswordViewController.swift; sourceTree = "<group>"; };
 		EDE69E8729A9CEC100223B6A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,16 +81,43 @@
 		ED91036729A9C17D002F8F22 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3B8A0BAA29A8DFEB0092B757 /* InputEmailViewController.swift */,
-				ED91036529A949F3002F8F22 /* InputPasswordViewController.swift */,
+				EDB783D729AA2E7B0015A95E /* ImputEmailViewController */,
+				EDB783D829AA2EAD0015A95E /* ImputPasswordViewController */,
+				EDB783D629AA2E660015A95E /* ImboxViewController */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EDB783D629AA2E660015A95E /* ImboxViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ED12651229AA1BDC008FE8A4 /* InboxViewController.swift */,
+				ED12651429AA1D7D008FE8A4 /* MailTableViewCell.swift */,
+			);
+			path = ImboxViewController;
+			sourceTree = "<group>";
+		};
+		EDB783D729AA2E7B0015A95E /* ImputEmailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3B8A0BAA29A8DFEB0092B757 /* InputEmailViewController.swift */,
+			);
+			path = ImputEmailViewController;
+			sourceTree = "<group>";
+		};
+		EDB783D829AA2EAD0015A95E /* ImputPasswordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ED91036529A949F3002F8F22 /* InputPasswordViewController.swift */,
+			);
+			path = ImputPasswordViewController;
 			sourceTree = "<group>";
 		};
 		EDE69E8929A9CEC900223B6A /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				EDE69E8729A9CEC100223B6A /* UserModel.swift */,
+				ED12651029AA13E0008FE8A4 /* MailModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,9 +193,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED12651529AA1D7D008FE8A4 /* MailTableViewCell.swift in Sources */,
 				3B8A0BAB29A8DFEB0092B757 /* InputEmailViewController.swift in Sources */,
 				3B8A0BA729A8DFEB0092B757 /* AppDelegate.swift in Sources */,
+				ED12651129AA13E0008FE8A4 /* MailModel.swift in Sources */,
 				ED91036629A949F3002F8F22 /* InputPasswordViewController.swift in Sources */,
+				ED12651329AA1BDC008FE8A4 /* InboxViewController.swift in Sources */,
 				EDE69E8829A9CEC100223B6A /* UserModel.swift in Sources */,
 				3B8A0BA929A8DFEB0092B757 /* SceneDelegate.swift in Sources */,
 			);

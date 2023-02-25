@@ -29,10 +29,25 @@ class InputEmailViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     @IBOutlet weak var nextButtonBottomConstraint: NSLayoutConstraint!
-    
+
     var user = UserModel(email: "test.email@gmail.com",
                          phoneNumber: "+37498765432",
-                         password: "testPassword123")
+                         password: "testPassword123",
+                         mailArray:  [
+                            MailModel(sender: "Google",
+                                      title: "Security alert",
+                                      mailText: "You logged in from another device. If its not you, please click the link down below."),
+                            
+                            MailModel(sender: "Ani",
+                                      title: "Lectures",
+                                      mailText: "I send you all lectures, if you have any question please ask me."),
+//                            
+                            MailModel(sender: "Elon Musk",
+                                      title: "Twitter",
+                                      mailText: "Dear Sose Yeritsyan, Please check your twitter account. And if you have any question feel free to ask me")
+                            
+                            ]
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,8 +118,8 @@ class InputEmailViewController: UIViewController {
         if emailOrPhone == self.user.email || emailOrPhone == self.user.phoneNumber {
             // open InputPasswordViewController
             self.performSegue(withIdentifier: "openInputPasswordFromInputLogin",
-                              sender: self.user)
-            
+                              sender: nil)
+
         } else {
             self.warningMessageView.isHidden = false
             self.emailTextField.layer.borderColor = .init(red: 255, green: 0, blue: 0, alpha: 1)

@@ -43,6 +43,11 @@ class InputPasswordViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let inboxViewController = segue.destination as? InboxViewController {
+            inboxViewController.user = self.user
+        }
+    }
     func setupUI() {
         self.hideKeyboardWhenTappedAround()
 
@@ -96,7 +101,7 @@ class InputPasswordViewController: UIViewController {
     @IBAction func nextAction(_ sender: UIButton) {
         guard let password = self.passwordTextField.text else { return }
         if password == self.user?.password {
-            print("woow")
+            self.performSegue(withIdentifier: "openInboxViewControllerFromInputPasswordViewController", sender: nil)
         } else {
             self.warningMessageView.isHidden = false
             if password.isEmpty {
