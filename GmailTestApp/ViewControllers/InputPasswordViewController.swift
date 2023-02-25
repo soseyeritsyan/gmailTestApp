@@ -17,25 +17,31 @@ class InputPasswordViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var warningMessageView: UIView!
+    @IBOutlet weak var attencionImageView: UIImageView!
+    @IBOutlet weak var warningMessageLabel: UILabel!
+    
     @IBOutlet weak var showPasswordButton: UIButton!
     
     @IBOutlet weak var showPasswordLabel: UILabel!
     
     @IBOutlet weak var forgotPasswordButton: UIButton!
+    
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet var nextButtonBottomConstraint: NSLayoutConstraint!
+    
     var user: UserModel? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupUI()
     }
 
     func setupUI() {
-        self.navigationController?.isNavigationBarHidden = true
-
-        self.nextButton.layer.cornerRadius = 4
-            
         self.hideKeyboardWhenTappedAround()
+
+        self.navigationController?.isNavigationBarHidden = true
 
         NotificationCenter.default.addObserver(self,
                             selector: #selector(self.keyboardWillShow),
@@ -47,6 +53,16 @@ class InputPasswordViewController: UIViewController {
                    selector: #selector(self.keyboardWillHide),
                    name: UIResponder.keyboardWillHideNotification,
                    object: nil)
+        
+        self.warningMessageView.isHidden = true
+
+        
+        self.emailLabel.text = self.user?.email
+        
+        self.nextButton.layer.cornerRadius = 4
+
+        self.passwordTextField.isSecureTextEntry = true
+        self.showPasswordButton.isSelected = false
         
         self.passwordTextField.layer.borderWidth = 1
         self.passwordTextField.layer.cornerRadius = 4
@@ -68,9 +84,27 @@ class InputPasswordViewController: UIViewController {
     }
     
     @IBAction func showPasswordAction(_ sender: UIButton) {
+        self.passwordTextField.isSecureTextEntry.toggle()
+        self.showPasswordButton.isSelected.toggle()
     }
     
     @IBAction func nextAction(_ sender: UIButton) {
+        guard let password = self.passwordTextField.text else { return }
+        if password == self.user?.password {
+            print("woow")
+        } else {
+            if password.isEmpty {
+                self.warningMessageLabel.text = "Input your password"
+            } else {
+                self.warningMessageLabel.text =
+                """
+                    Your password is wrong. Try again or click on "Forgot password"
+                """
+
+            }
+            self.passwordTextField.layer.borderColor = .init(red: 255, green: 0, blue: 0, alpha: 1)
+
+        }
     }
     
 }
