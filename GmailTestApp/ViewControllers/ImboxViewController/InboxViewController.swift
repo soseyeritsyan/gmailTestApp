@@ -10,6 +10,9 @@ import UIKit
 class InboxViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var composeBackgroundView: UIView!
+    @IBOutlet weak var composeView: UIView!
+
     var user: UserModel?
     
     override func viewDidLoad() {
@@ -19,6 +22,16 @@ class InboxViewController: UIViewController {
     
     func setupUI() {
         self.navigationController?.isNavigationBarHidden = true
+        
+        self.composeBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        self.composeBackgroundView.leftAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.leftAnchor).isActive = true
+        self.composeBackgroundView.rightAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.rightAnchor, constant: -30).isActive = true
+        self.composeBackgroundView.bottomAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
+        self.composeBackgroundView.widthAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.widthAnchor).isActive = true
+        self.composeBackgroundView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        self.composeView.layer.cornerRadius = 20
+
     }
     
 }

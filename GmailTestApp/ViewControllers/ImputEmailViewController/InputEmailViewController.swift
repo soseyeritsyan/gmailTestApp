@@ -41,7 +41,7 @@ class InputEmailViewController: UIViewController {
                             MailModel(sender: "Ani",
                                       title: "Lectures",
                                       mailText: "I send you all lectures, if you have any question please ask me."),
-//                            
+                            
                             MailModel(sender: "Elon Musk",
                                       title: "Twitter",
                                       mailText: "Dear Sose Yeritsyan, Please check your twitter account. And if you have any question feel free to ask me")

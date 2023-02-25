@@ -295,7 +295,7 @@
                                                 <color key="tintColor" systemColor="systemGray2Color"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="square" catalog="system"/>
-                                                <state key="selected" image="square.and.arrow.up.fill" catalog="system"/>
+                                                <state key="selected" image="checked_checkbox"/>
                                                 <connections>
                                                     <action selector="showPasswordAction:" destination="gBU-S2-b8g" eventType="touchUpInside" id="tIe-Iu-jsu"/>
                                                 </connections>
@@ -540,6 +540,51 @@
                                     <outlet property="delegate" destination="5tM-An-v8a" id="AsK-iC-c4n"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" id="NKc-1r-OSv">
+                                <rect key="frame" x="0.0" y="769" width="428" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vqj-Qr-9eL">
+                                        <rect key="frame" x="281" y="16.666666666666629" width="139" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bq4-hH-Mfi">
+                                                <rect key="frame" x="0.0" y="0.0" width="139" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="N9v-mS-vni">
+                                                <rect key="frame" x="9.9999999999999982" y="12.666666666666739" width="17.333333333333329" height="15.333333333333337"/>
+                                                <color key="tintColor" systemColor="systemRedColor"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uly-lB-q4N">
+                                                <rect key="frame" x="35.333333333333321" y="8" width="84.666666666666686" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Bq4-hH-Mfi" secondAttribute="trailing" id="2B7-tV-e0p"/>
+                                            <constraint firstItem="Uly-lB-q4N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="N9v-mS-vni" secondAttribute="trailing" constant="8" symbolic="YES" id="FdB-hS-UTS"/>
+                                            <constraint firstItem="N9v-mS-vni" firstAttribute="centerY" secondItem="Vqj-Qr-9eL" secondAttribute="centerY" id="Kcj-uB-Wbb"/>
+                                            <constraint firstAttribute="height" constant="40" id="Y4J-RZ-kGe"/>
+                                            <constraint firstItem="N9v-mS-vni" firstAttribute="leading" secondItem="Vqj-Qr-9eL" secondAttribute="leading" constant="10" id="aBh-Tx-ZDu"/>
+                                            <constraint firstItem="Bq4-hH-Mfi" firstAttribute="leading" secondItem="Vqj-Qr-9eL" secondAttribute="leading" id="d1F-Yv-NgX"/>
+                                            <constraint firstItem="Bq4-hH-Mfi" firstAttribute="top" secondItem="Vqj-Qr-9eL" secondAttribute="top" id="eQS-V6-msd"/>
+                                            <constraint firstAttribute="width" constant="139" id="eZd-aV-tWR"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bq4-hH-Mfi" secondAttribute="bottom" id="g0a-aR-OVG"/>
+                                            <constraint firstItem="Uly-lB-q4N" firstAttribute="centerY" secondItem="Vqj-Qr-9eL" secondAttribute="centerY" id="vNs-Vp-vAx"/>
+                                            <constraint firstAttribute="trailing" secondItem="Uly-lB-q4N" secondAttribute="trailing" constant="19" id="vfG-Lt-4hK"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Vqj-Qr-9eL" secondAttribute="trailing" constant="8" id="Ssl-Zb-BPY"/>
+                                    <constraint firstItem="Vqj-Qr-9eL" firstAttribute="centerY" secondItem="NKc-1r-OSv" secondAttribute="centerY" id="Tz3-7K-zeb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fC1-1z-61p"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -552,6 +597,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="vJm-5j-Yug"/>
                     <connections>
+                        <outlet property="composeBackgroundView" destination="NKc-1r-OSv" id="Ira-Ha-j6y"/>
+                        <outlet property="composeView" destination="Vqj-Qr-9eL" id="d99-M9-btX"/>
                         <outlet property="tableView" destination="R92-Fu-vEb" id="WCW-oI-iOt"/>
                     </connections>
                 </viewController>
@@ -563,9 +610,10 @@
     <resources>
         <image name="Google_logo" width="2560" height="866"/>
         <image name="attention" width="512" height="512"/>
+        <image name="checked_checkbox" width="200" height="200"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square" catalog="system" width="128" height="114"/>
-        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
