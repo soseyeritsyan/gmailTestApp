@@ -37,6 +37,11 @@ class InputPasswordViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
 
     func setupUI() {
         self.hideKeyboardWhenTappedAround()
@@ -72,7 +77,7 @@ class InputPasswordViewController: UIViewController {
     
     @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            self.nextButtonBottomConstraint.constant = keyboardSize.height + 10
+            self.nextButtonBottomConstraint.constant = keyboardSize.height + 70
         }
     }
 
@@ -93,6 +98,7 @@ class InputPasswordViewController: UIViewController {
         if password == self.user?.password {
             print("woow")
         } else {
+            self.warningMessageView.isHidden = false
             if password.isEmpty {
                 self.warningMessageLabel.text = "Input your password"
             } else {

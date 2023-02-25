@@ -40,6 +40,11 @@ class InputEmailViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let inputPasswordViewController = segue.destination as? InputPasswordViewController {
             inputPasswordViewController.user = self.user
